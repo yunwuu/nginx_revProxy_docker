@@ -8,7 +8,6 @@ RUN apt update
 COPY ./install.sh /install.sh
 RUN sh /install.sh
 COPY ./nginx.conf /usr/local/nginx/conf/nginx.conf
-COPY ./js/hello.js /usr/local/nginx/jslib/hello.js
 
 CMD ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
 EXPOSE 80
