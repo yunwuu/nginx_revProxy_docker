@@ -33,6 +33,5 @@ jobs:
     - name: Login to Aliyun
       run: docker login --username=$uname $endpoint -p $pwd
     - name: Tag
-      run: docker tag nginx:latest $endpoint/yunwu-docker/nginx:${{ steps.build.outputs.tstamp }}
-    - name: Push
-      run: docker push $endpoint/yunwu-docker/nginx:${{ steps.build.outputs.tstamp }}
+      run: docker tag nginx:latest $endpoint/yunwu-docker/nginx:latest-actions
+      run: docker push $endpoint/yunwu-docker/nginx:latest-actions
