@@ -34,4 +34,5 @@ jobs:
       run: docker login --username=$uname $endpoint -p $pwd
     - name: Tag
       run: docker tag nginx:latest $endpoint/yunwu-docker/nginx:latest-actions
+    - name: Push
       run: docker push $endpoint/yunwu-docker/nginx:latest-actions
