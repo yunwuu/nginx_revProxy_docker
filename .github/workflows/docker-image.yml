@@ -13,8 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     env: 
       ts: $(date +%s)
+      endpoint: ${{ secrets.ALIYUN_ENDPOINT }}
+      uname: ${{ secrets.ALIYUN_USERNAME }}
+      pwd: ${{ secrets.ALIYUN_PWD }}
 
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag nginx:$(ts)
+      run: docker build . --file Dockerfile --tag nginx:latest
