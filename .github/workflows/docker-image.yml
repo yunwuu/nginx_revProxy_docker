@@ -21,3 +21,9 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag nginx:latest
+    - name: Login to Aliyun
+      run: docker login --username=$uname $endpoint -p $pwd
+    - name: Tag
+      run: docker tag nginx:latest $endpoint/yunwu-docker/nginx:$ts
+    - name: Push
+      run: docker push $endpoint/yunwu-docker/nginx:$ts
