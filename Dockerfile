@@ -1,8 +1,8 @@
 FROM debian:9-slim
 
-RUN apt update
-RUN apt install apt-transport-https ca-certificates -y
-COPY ./aliyun.list /etc/apt/sources.list
+#RUN apt update
+#RUN apt install apt-transport-https ca-certificates -y
+#COPY ./aliyun.list /etc/apt/sources.list
 RUN apt update
 
 COPY ./install.sh /install.sh
