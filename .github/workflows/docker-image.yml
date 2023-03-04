@@ -20,6 +20,7 @@ jobs:
   publish:
     
     runs-on: ubuntu-latest
+    needs: build
     
     env: 
       ts: $(date+%s)
