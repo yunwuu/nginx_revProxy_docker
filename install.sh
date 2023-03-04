@@ -35,7 +35,7 @@ cd ngx_brotli
 git submodule update --init --recursive
 
 
-cd "nginx-$default_nginx_version"
+cd "../nginx-$default_nginx_version"
 ./configure --with-openssl=../openssl --with-http_ssl_module --with-http_v2_module  --with-http_sub_module --add-module=../ngx_brotli
 make
 make install
