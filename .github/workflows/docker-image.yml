@@ -11,19 +11,27 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    env: 
-      ts: $(date +%s)
-      endpoint: ${{ secrets.ALIYUN_ENDPOINT }}
-      uname: ${{ secrets.ALIYUN_USERNAME }}
-      pwd: ${{ secrets.ALIYUN_PWD }}
 
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag nginx:latest
+  
+  publish:
+    
+    runs-on: ubuntu-latest
+    
+    env: 
+      ts: $(date+%s)
+      endpoint: ${{ secrets.ALIYUN_ENDPOINT }}
+      uname: ${{ secrets.ALIYUN_USERNAME }}
+      pwd: ${{ secrets.ALIYUN_PWD }}
+    
+    steps:
+    - uses: actions/checkout@v3
     - name: Login to Aliyun
       run: docker login --username=$uname $endpoint -p $pwd
     - name: Tag
-      run: docker tag nginx:latest $endpoint/yunwu-docker/nginx:$ts
+      run: docker tag nginx:latest "$endpoint/yunwu-docker/nginx:$ts"
     - name: Push
-      run: docker push $endpoint/yunwu-docker/nginx:$ts
+      run: docker push "$endpoint/yunwu-docker/nginx:$ts"
