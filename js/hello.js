@@ -11,3 +11,6 @@ function verify() {
         return;
     }
 }
+
+
+verify();
