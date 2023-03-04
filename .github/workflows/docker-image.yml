@@ -23,7 +23,7 @@ jobs:
     needs: build
     
     env: 
-      ts: $(date+%s)
+      ts: ${{ date + %s }}
       endpoint: ${{ secrets.ALIYUN_ENDPOINT }}
       uname: ${{ secrets.ALIYUN_USERNAME }}
       pwd: ${{ secrets.ALIYUN_PWD }}
