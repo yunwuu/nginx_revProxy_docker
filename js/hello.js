@@ -6,7 +6,7 @@ const key = "GF3DA";
 
 
 function verify() {
-    if(!document.cookie || !document.cookie.key || document.cookie.key != key) {
+    if(!document.cookie || !document.cookie.key || document.cookie.replace(/(?:(?:^|.*;\s*)key\s*\=\s*([^;]*).*$)|^.*$/, "$1") != key) {
         window.location = "https://www.baidu.com";
         return;
     }
