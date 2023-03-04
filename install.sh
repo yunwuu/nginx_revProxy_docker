@@ -39,5 +39,3 @@ cd "../nginx-$default_nginx_version"
 ./configure --with-openssl=../openssl --with-http_ssl_module --with-http_v2_module  --with-http_sub_module --add-module=../ngx_brotli
 make
 make install
-
-mkdir /usr/local/nginx/jslib/
