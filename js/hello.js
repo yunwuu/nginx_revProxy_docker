@@ -7,10 +7,11 @@ const key = "GF3DA";
 
 function verify() {
     if(!document.cookie || !document.cookie.key || document.cookie.key != key) {
-        document.write("403Forbidden");
+        window.location = "https://www.baidu.com";
         return;
     }
 }
+
 
 
 verify();
