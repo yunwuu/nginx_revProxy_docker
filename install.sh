@@ -41,3 +41,5 @@ make
 make install
 
 mkdir /usr/local/nginx/jslib/
+
+echo "tstamp=$(date +%s)" >> $GITHUB_OUTPUT

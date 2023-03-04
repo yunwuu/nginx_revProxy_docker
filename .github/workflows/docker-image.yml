@@ -15,6 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
+      id: build
       run: docker build . --file Dockerfile --tag nginx:latest
   
   publish:
@@ -23,7 +24,7 @@ jobs:
     needs: build
     
     env: 
-      ts: ${{ date + %s }}
+      ts: ${{ steps.build.outputs.tstamp }}
       endpoint: ${{ secrets.ALIYUN_ENDPOINT }}
       uname: ${{ secrets.ALIYUN_USERNAME }}
       pwd: ${{ secrets.ALIYUN_PWD }}
